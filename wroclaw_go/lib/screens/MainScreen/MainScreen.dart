@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import "./Widgets/index.dart";
+
 
 class MainScreenState extends StatefulWidget{
   @override
@@ -11,12 +13,8 @@ class MainScreen extends State<MainScreenState> {
 
   int _currentIndex = 0;
   final List<Widget> _children = [
-    new Container(
-      color: Colors.blue,
-    ),
-    new Container(
-      color: Colors.red,
-    )
+    new EventsViewState(),
+    new SavedEventsViewState()
   ];
   final List<Text> titles = [new Text("Wydarzenia"), new Text("Zapisane")];
 
