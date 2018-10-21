@@ -4,8 +4,8 @@ import 'screens/WelcomeScreen/index.dart';
 
 class Routes {
   final routes = <String, WidgetBuilder>{
-    '/': (context) => new InitialScreen(),
-    '/main' : (context) => new MainScreen()
+    '/': (context) => new InitialScreenState(),
+    '/main' : (context) => new MainScreenState()
   };
 
   Routes(){

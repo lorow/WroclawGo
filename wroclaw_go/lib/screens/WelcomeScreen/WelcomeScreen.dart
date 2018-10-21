@@ -1,8 +1,17 @@
 import 'dart:ui';
 import "package:flutter/material.dart";
-import 'Widgets/index.dart';
 
-class InitialScreen extends StatelessWidget{
+class InitialScreenState extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    return InitialScreen();
+  }
+
+}
+
+class InitialScreen extends State<InitialScreenState>{
+
+  static var _context;
 
   Widget backgroundImage = new Container(
     decoration: new BoxDecoration(
@@ -22,15 +31,6 @@ class InitialScreen extends StatelessWidget{
     ),
   );
 
-  Widget buttonNext = new Container(
-    padding: new EdgeInsets.only(bottom: 80.0),
-    child: new RaisedButton(
-        onPressed: (){
-
-        }
-    )
-  );
-
   static Widget topText =  new Container(
     padding: new EdgeInsets.only(top: 190.0),
     child: new Row(
@@ -48,6 +48,28 @@ class InitialScreen extends StatelessWidget{
         )
       ],
     ),
+  );
+
+  Widget startButton =  new Container(
+    padding: EdgeInsets.only(bottom: 60.0),
+
+      child:new ButtonTheme(
+       minWidth: 150.0,
+       height: 35.0,
+          child: new OutlineButton(
+            shape: new RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(30.0)
+            ),
+
+            textColor: Colors.white,
+            color: Colors.blue,
+
+            child: new Text('Start!'),
+            onPressed: (){
+              Navigator.pushReplacementNamed(_context, '/main');
+            }
+        )
+     )
   );
 
   static Widget bottomText =  new Container(
@@ -77,6 +99,7 @@ class InitialScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+    _context = context;
     return new Scaffold(
         body: new Stack(
           children: <Widget>[
@@ -86,11 +109,7 @@ class InitialScreen extends StatelessWidget{
             middleText,
             Align(
               alignment: Alignment(0.0, 1.0),
-              child: ButtonTheme(
-                minWidth: 130.0,
-                height: 50.0,
-                child: buttonNext
-              ),
+              child: startButton
             )
           ],
         )
