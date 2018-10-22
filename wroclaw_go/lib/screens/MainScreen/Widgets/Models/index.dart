@@ -1,0 +1,1 @@
+export 'eventModel.dart';
